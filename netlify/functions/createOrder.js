@@ -8,12 +8,13 @@ exports.handler = async function(event, context) {
     };
   }
 
-  let productLists, total, userDetails;
+  let productLists, total, userDetails, orderId;
   try {
     const body = JSON.parse(event.body);
     productLists = body.productLists;
     total = body.total;
     userDetails = body.userDetails;
+    orderId = body.orderId;
   } catch (err) {
     return {
       statusCode: 400,
@@ -22,7 +23,6 @@ exports.handler = async function(event, context) {
   }
 
   // Simulate order creation logic
-  const orderId = userDetails.name.replace(/\s+/g, '') + Math.floor(Math.random() * 1000000);
   // Send email using Gmail
   const transporter = nodemailer.createTransport({
     service: 'gmail',

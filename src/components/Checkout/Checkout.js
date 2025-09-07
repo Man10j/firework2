@@ -56,10 +56,11 @@ import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
     const handlePlaceOrder = () => {
       setOpen(false);
       setLoading(true)
+       const orderId = user?.name.replace(/\s+/g, '') + Math.floor(Math.random() * 100000);
 fetch('/.netlify/functions/createOrder', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ productLists: cartItems, total: total, userDetails:{
+        body: JSON.stringify({ productLists: cartItems, orderId:orderId, total: total, userDetails:{
           name: user.name,
           phone: user.phone,
           email: user.email,
@@ -71,7 +72,7 @@ fetch('/.netlify/functions/createOrder', {
           setUser({ name: '', phone: '', address: '' });
           setLoading(false);
           setToast(true);
-      const message =  data?.orderId ? `This is to notify that I have placed an order. Order #${data.orderId }` : 'This is to notify that I have placed an order.';
+      const message =  `This is to notify that I have placed an order. Order #${orderId}`;
       const whatsappNumber = "919443866993"; // Replace with your desired number (country code + number)
       window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
 
