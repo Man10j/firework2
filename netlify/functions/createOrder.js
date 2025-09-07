@@ -22,29 +22,25 @@ exports.handler = async function(event, context) {
   }
 
   // Simulate order creation logic
-  const orderId = Math.floor(Math.random() * 1000000);
-
+  const orderId = userDetails.name.replace(/\s+/g, '') + Math.floor(Math.random() * 1000000);
   // Send email using Gmail
   const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: "cmprabhakarjan27@gmail.com",
-      pass: "ppnh rtlp yjrn rvnf" // Use App Passwords for better security
+      user: process.env.userEmail,
+      pass: process.env.pass // Use App Passwords for better security
     }
   });
 
     // Create HTML table for products (excluding idx)
-    let tableRows = productLists.map(product => `
+    let tableRows = productLists.map((product,index) => `
       <tr>
-        <td>${product.name}</td>
+      <td>${index + 1}.</td>
         <td>${product.description}</td>
+     <td>${product.packType}</td>
          <td>${product.count}</td>
-       
-        <td>${product.packType}</td>
-        <td>${product.category}</td>
-         <td>${product.price}</td>
-        <td>${product.discountedPrice}</td>
-       
+         <td>₹${product.price}</td>
+        <td>₹${product.discountedPrice}</td>
       </tr>
     `).join('');
 
@@ -52,11 +48,10 @@ exports.handler = async function(event, context) {
       <table border="1" cellpadding="5" cellspacing="0">
         <thead>
           <tr>
+            <th>S.No</th>
             <th>Name</th>
-            <th>Description</th>
-            <th>Count</th>
             <th>Pack Type</th>
-            <th>Category</th>
+            <th>Count</th>
             <th>Price</th>
             <th>Discounted Price</th>
           </tr>
@@ -64,7 +59,7 @@ exports.handler = async function(event, context) {
         <tbody>
           ${tableRows}
            <tr>
-              <td colspan="7" style="text-align:right;font-weight:bold;">Total: ${total}</td>
+              <td colspan="7" style="text-align:right;font-weight:bold;">Total: ₹${total}</td>
             </tr>
         </tbody>
       </table>
@@ -72,14 +67,17 @@ exports.handler = async function(event, context) {
 
             
   // Extract user details and format them as "Field: Value" lines
-  const userDetailsHtml = Object.entries(userDetails)
-    .map(([key, value]) => `<p>${key}: ${value}</p>`)
-    .join('');
+  const userDetailsHtml = `
+    <p>Name: ${userDetails.name}</p>
+    <p>Email: ${userDetails.email}</p>
+    <p>Phone: ${userDetails.phone}</p>
+    <p>Address: ${userDetails.address}</p>
+  `;
 
   const mailOptions = {
-    from: "cmprabhakarjan27@gmail.com",
-    to: userDetails.email,
-    subject: 'Order Confirmation',
+    from: process.env.userEmail,
+    to: "cmprabhakarjan27@gmail.com",
+    subject: `Order Confirmation ${orderId}`,
     html: `
       ${userDetailsHtml}
       <p>Your order #${orderId} has been created.</p>
