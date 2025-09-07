@@ -21,20 +21,19 @@ export default function Header({cartCount}) {
   };
 
   return (
-    <AppBar position="static" color="primary" sx={{ mb: 2 }}>
+    <AppBar 
+      position={isMobile ? "sticky" : "static"} 
+      color="primary" 
+      sx={{ mb: 2, top: 0, zIndex: 1201, ...(isMobile && { position: 'sticky', top: 0 }) }}
+    >
       <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
-          {/* <img src={logo} alt="Brand Logo" style={{ height: 40, marginRight: 12 }} /> */}
-          <Typography variant={isMobile ? 'h6' : 'h5'} component="div" sx={{ fontWeight: 600 }}>
+
+          <Typography variant={isMobile ? 'h6' : 'h5'} component="div" sx={{ fontWeight: 600 , cursor: "pointer"}}  onClick={() => navigate('/')}>
             SRI KALISWARI CRACKERS
           </Typography>
         </Box>
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
-          {/* <ContactMailIcon sx={{ mr: 1 }} />
-          <Typography variant="body2" sx={{ display: { xs: 'none', sm: 'block' } }}>
-              +91 9443866993  
-              +91 9360502058
-          </Typography> */}
            <Toolbar sx={{ justifyContent: 'flex-end' }}>
         <Box>
           <IconButton size="large" color="inherit" onClick={handleCartClick}>

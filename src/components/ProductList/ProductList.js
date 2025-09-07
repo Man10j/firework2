@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
+import TextField from '@mui/material/TextField';
+import InputAdornment from '@mui/material/InputAdornment';
+import IconButton from '@mui/material/IconButton';
+import CloseIcon from '@mui/icons-material/Close';
 import Button from '@mui/material/Button';
 import Pagination from '@mui/material/Pagination';
-import IconButton from '@mui/material/IconButton';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import Box from '@mui/material/Box';
@@ -14,13 +17,45 @@ import Chip from '@mui/material/Chip';
 
 export default function ProductList({products, cart = {}, onAddToCart, onRemoveFromCart }) {
   const [page, setPage] = useState(1);
+  const [search, setSearch] = useState('');
   const itemsPerPage = 9;
-  const pageCount = Math.ceil(products.length / itemsPerPage);
   const handleChange = (event, value) => setPage(value);
-  const paginatedProducts = products.slice((page - 1) * itemsPerPage, page * itemsPerPage);
+
+  // Filter products by search (category or description)
+  const filteredProducts = products.filter(product => {
+    const val = search.trim().toLowerCase();
+    if (!val) return true;
+    return (
+      product.category.toLowerCase().includes(val) ||
+      product.description.toLowerCase().includes(val)
+    );
+  });
+
+  const pageCount = Math.ceil(filteredProducts.length / itemsPerPage);
+  const paginatedProducts = filteredProducts.slice((page - 1) * itemsPerPage, page * itemsPerPage);
   return (
-    <Box sx={{ p: { xs: 1, sm: 2 }, minHeight: '50vh', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-      <Grid container spacing={2}>
+    <Box sx={{ p: { xs: 1, sm: 2 }, minHeight: '50vh', display: 'flex', flexDirection: 'column', justifyContent: { xs: 'center', md: 'space-between' }, alignItems: { xs: 'center', sm: 'stretch' } }}>
+  
+         <TextField
+        label="Search by category or description"
+        variant="outlined"
+        value={search}
+        onChange={e => { setSearch(e.target.value); setPage(1); }}
+        sx={{ mb: 3, width: { xs: '100%', sm: 400 }, position: { xs: 'sticky', md: 'relative' }, top: { xs: 0, sm: 'auto' }, zIndex: 1201, background: { xs: '#fff', sm: 'inherit' },}}
+        InputProps={{
+          endAdornment: (
+            search ? (
+              <InputAdornment position="end">
+                <IconButton aria-label="clear search" onClick={() => { setSearch(''); setPage(1); }} edge="end">
+                  <CloseIcon />
+                </IconButton>
+              </InputAdornment>
+            ) : null
+          )
+        }}
+      />
+     
+      <Grid container spacing={2} sx={{justifyContent: { xs: 'center', md: 'left' }}}>
         {paginatedProducts.map((product, idx) => {
           const realIdx = (page - 1) * itemsPerPage + idx;
           const count = cart[realIdx] || 0;

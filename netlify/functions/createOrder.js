@@ -69,14 +69,13 @@ exports.handler = async function(event, context) {
   // Extract user details and format them as "Field: Value" lines
   const userDetailsHtml = `
     <p>Name: ${userDetails.name}</p>
-    <p>Email: ${userDetails.email}</p>
     <p>Phone: ${userDetails.phone}</p>
     <p>Address: ${userDetails.address}</p>
   `;
 
   const mailOptions = {
     from: process.env.userEmail,
-    to: "cmprabhakarjan27@gmail.com",
+    to: process.env.receiverEmail,
     subject: `Order Confirmation ${orderId}`,
     html: `
       ${userDetailsHtml}

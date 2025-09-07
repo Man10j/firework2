@@ -71,8 +71,9 @@ fetch('/.netlify/functions/createOrder', {
           setUser({ name: '', phone: '', address: '' });
           setLoading(false);
           setToast(true);
+          console.log(data,"data after mail")
       const message = `This is to notify that I have placed an order. Order #${data.orderId}`;
-      const whatsappNumber = '918489397667'; // Replace with your desired number (country code + number)
+      const whatsappNumber = "919443866993"; // Replace with your desired number (country code + number)
       window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
 
           if (onOrderPlaced) onOrderPlaced();
@@ -156,7 +157,7 @@ fetch('/.netlify/functions/createOrder', {
                   <DialogContent sx={{ display: 'flex', flexDirection: 'column', gap: 2, mt: 1 }}>
                     <TextField label="Name" name="name" value={user.name} onChange={handleChange} fullWidth required />
                     <TextField label="Phone" name="phone" value={user.phone} onChange={handleChange} fullWidth required />
-                    <TextField label="Email" name="email" value={user.email} onChange={handleChange} fullWidth required type="email" />
+                    {/* <TextField label="Email" name="email" value={user.email} onChange={handleChange} fullWidth required type="email" /> */}
                     <TextField label="Address" name="address" value={user.address} onChange={handleChange} fullWidth required multiline minRows={2} />
                   </DialogContent>
                   <DialogActions>
@@ -165,7 +166,7 @@ fetch('/.netlify/functions/createOrder', {
                       onClick={handlePlaceOrder} 
                       variant="contained" 
                       color="success"
-                      disabled={!user.name || !user.phone || !user.address || !user.email}
+                      disabled={!user.name || !user.phone || !user.address}
                     >
                       Place Order
                     </Button>
