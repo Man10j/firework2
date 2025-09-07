@@ -1,6 +1,6 @@
 import './App.css';
 import Header from './components/Header/Header';
-import SubHeader from './components/SubHeader/SubHeader';
+import Footer from './components/Footer/Footer';
 import ProductList from './components/ProductList/ProductList';
 import Checkout from './components/Checkout/Checkout';
 import { useState } from 'react';
@@ -35,13 +35,13 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Header />
+        <Header cartCount={cartCount} />
         <Routes>
           <Route
             path="/"
             element={
               <>
-                <SubHeader cartCount={cartCount} cart={cart} products={products} enableCartNav />
+                {/* <SubHeader cartCount={cartCount} cart={cart} products={products} enableCartNav /> */}
                 <ProductList products={products} onAddToCart={handleAddToCart} onRemoveFromCart={handleRemoveFromCart} cart={cart} />
               </>
             }
@@ -56,6 +56,7 @@ function App() {
           />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
+        <Footer />
       </div>
     </Router>
   );

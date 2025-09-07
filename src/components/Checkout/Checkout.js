@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import Backdrop from '@mui/material/Backdrop';
+import CircularProgress from '@mui/material/CircularProgress';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
@@ -13,9 +15,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 import DialogActions from '@mui/material/DialogActions';
 import TextField from '@mui/material/TextField';
-import Tooltip from '@mui/material/Tooltip';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
-import { emphasize } from '@mui/material/styles';
 
 
   const Checkout = ({ cart, products, onOrderPlaced }) => {
@@ -32,6 +32,7 @@ import { emphasize } from '@mui/material/styles';
     const total = cartItems.reduce((sum, item) => sum + item.discountedPrice * item.count, 0);
   
   const [open, setOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [user, setUser] = useState({ name: '', phone: '', email: '', address: '' });
   const [toast, setToast] = useState(false);
   const [clearDialog, setClearDialog] = useState(false);
@@ -53,7 +54,8 @@ import { emphasize } from '@mui/material/styles';
       setUser({ ...user, [e.target.name]: e.target.value });
     };
     const handlePlaceOrder = () => {
-
+      setOpen(false);
+      setLoading(true)
 fetch('/.netlify/functions/createOrder', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -66,17 +68,22 @@ fetch('/.netlify/functions/createOrder', {
       })
         .then(res => res.json())
         .then(data => {
-         setOpen(false);
-      setToast(true);
-      setUser({ name: '', phone: '', address: '' });
-      
-      if (onOrderPlaced) onOrderPlaced();
+          setUser({ name: '', phone: '', address: '' });
+          setLoading(false);
+          setToast(true);
+      const message = `This is to notify that I have placed an order. Order #${data.orderId}`;
+      const whatsappNumber = '918489397667'; // Replace with your desired number (country code + number)
+      window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
+
+          if (onOrderPlaced) onOrderPlaced();
       setTimeout(() => {
+        setLoading(false);
         setToast(false);
         navigate('/');
       }, 2000);
         })
         .catch(err => {
+          setLoading(false);
           console.error('Error placing order:', err);
         });
 
@@ -90,6 +97,9 @@ fetch('/.netlify/functions/createOrder', {
   
     return (
     <>
+      <Backdrop open={loading} sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}>
+        <CircularProgress color="inherit" />
+      </Backdrop>
       <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', mt: 4 }}>
         <Button 
           variant="contained" 
@@ -123,7 +133,7 @@ fetch('/.netlify/functions/createOrder', {
                 {cartItems.map(item => (
                   <Box key={item.idx} sx={{ mb: 2 }}>
                     <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                      <Typography variant="subtitle1" sx={{ fontWeight: 500 }}>{item.name}</Typography>
+                      <Typography variant="subtitle1" sx={{ fontWeight: 500 }}>{item.description}</Typography>
                       <Typography variant="body2">x{item.count}</Typography>
                     </Box>
                     <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>

@@ -19,25 +19,32 @@ export default function ProductList({products, cart = {}, onAddToCart, onRemoveF
   const handleChange = (event, value) => setPage(value);
   const paginatedProducts = products.slice((page - 1) * itemsPerPage, page * itemsPerPage);
   return (
-    <Box sx={{ p: { xs: 1, sm: 2 } }}>
+    <Box sx={{ p: { xs: 1, sm: 2 }, minHeight: '50vh', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
       <Grid container spacing={2}>
         {paginatedProducts.map((product, idx) => {
           const realIdx = (page - 1) * itemsPerPage + idx;
           const count = cart[realIdx] || 0;
           return (
-            <Grid item xs={12} sm={6} md={4} key={realIdx}>
-              <Card sx={{ height: '100%' }}>
+            <Grid item xs={12} sm={4} md={12} key={realIdx}>
+              <Card sx={{ height: '100%', width: 270 }} key={realIdx}>
                 <CardContent>
                   <Box sx={{ display: 'flex', alignItems: 'center', mb: 1, gap: 1 }}>
-                    <Typography variant="h6" sx={{ flexGrow: 1 }}>
-                      {product.name}
-                    </Typography>
+                     <Chip 
+                      label={product.category}
+                      size="small"
+                      sx={{
+                        backgroundColor: '#f3e5f5', // subtle purple
+                        color: '#6a1b9a',
+                        fontWeight: 500
+                      }}
+                    />
                     <Chip label={product.packType} color="primary" size="small" />
                   </Box>
-                  <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
+                  <Typography variant="body2" color="text.secondary" sx={{ mb: 1,   wordBreak: 'break-word',
+                        overflowWrap: 'break-word', textAlign: "left"}}>
                     {product.description}
                   </Typography>
-                  <Box sx={{ mb: 1, display: 'flex', justifyContent: 'flex-start' }}>
+                  {/* <Box sx={{ mb: 1, display: 'flex', justifyContent: 'flex-start' }}>
                     <Chip 
                       label={product.category}
                       size="small"
@@ -47,7 +54,7 @@ export default function ProductList({products, cart = {}, onAddToCart, onRemoveF
                         fontWeight: 500
                       }}
                     />
-                  </Box>
+                  </Box> */}
                   <Box sx={{ display: 'flex', alignItems: 'baseline', gap: 1 }}>
                     <Typography variant="body1" color="text.secondary" sx={{ textDecoration: 'line-through' }}>
                       ₹{product.price}
@@ -70,6 +77,7 @@ export default function ProductList({products, cart = {}, onAddToCart, onRemoveF
             </Grid>
           );
         })}
+      
       </Grid>
       <Box sx={{ display: 'flex', justifyContent: 'center', mt: 3 }}>
         <Pagination count={pageCount} page={page} onChange={handleChange} color="primary" />
