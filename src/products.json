@@ -1,0 +1,810 @@
+[
+{
+"id": 1,
+"category": "SINGLE CRACKER",
+"description": "4\" Lakshmi crackers",
+"price": 69.00,
+"discountedPrice": 21.00,
+"packType": "1 Pkt."
+},
+{
+"id": 2,
+"category": "SOUND",
+"description": "4\" Lakshmi Super Deluxe Lion or Joker",
+"price": 121.00,
+"discountedPrice": 36.00,
+"packType": "1 Pkt."
+},
+{
+"id": 3,
+"category": "CRACKERS",
+"description": "2 3/4\" Kuruvi",
+"price": 35.00,
+"discountedPrice": 11.00,
+"packType": "1 Pkt."
+},
+{
+"id": 4,
+"category": "CHAKKARS",
+"description": "Ground Chakkar Big 25's",
+"price": 359.00,
+"discountedPrice": 108.00,
+"packType": "Box"
+},
+{
+"id": 5,
+"category": "CHAKKARS",
+"description": "Ground Chakkar Big 10's",
+"price": 134.00,
+"discountedPrice": 40.00,
+"packType": "Box"
+},
+{
+"id": 6,
+"category": "CHAKKARS",
+"description": "Ground Chakkar Special",
+"price": 266.00,
+"discountedPrice": 80.00,
+"packType": "Box"
+},
+{
+"id": 7,
+"category": "CHAKKARS",
+"description": "Ground Chakkar Deluxe",
+"price": 394.00,
+"discountedPrice": 118.00,
+"packType": "Box"
+},
+{
+"id": 8,
+"category": "CHAKKARS",
+"description": "Disco Wheel",
+"price": 338.00,
+"discountedPrice": 101.00,
+"packType": "Box"
+},
+{
+"id": 9,
+"category": "FLOWER POTS",
+"description": "Flower Pots Big",
+"price": 234.00,
+"discountedPrice": 70.00,
+"packType": "Box"
+},
+{
+"id": 10,
+"category": "FLOWER POTS",
+"description": "Flower Pots Special",
+"price": 325.00,
+"discountedPrice": 98.00,
+"packType": "Box"
+},
+{
+"id": 11,
+"category": "FLOWER POTS",
+"description": "Flower Pots Ashoka",
+"price": 500.00,
+"discountedPrice": 150.00,
+"packType": "Box"
+},
+{
+"id": 12,
+"category": "FLOWER POTS",
+"description": "Flower Pots Deluxe (5 Pcs)",
+"price": 625.00,
+"discountedPrice": 188.00,
+"packType": "Box"
+},
+{
+"id": 13,
+"category": "MULTI COLOUR FOUNTAIN",
+"description": "Colour Kotti (10 Pcs)",
+"price": 791.00,
+"discountedPrice": 237.00,
+"packType": "Box"
+},
+{
+"id": 14,
+"category": "MULTI COLOUR FOUNTAIN",
+"description": "High Voltage",
+"price": 725.00,
+"discountedPrice": 218.00,
+"packType": "Box"
+},
+{
+"id": 15,
+"category": "MULTI COLOUR FOUNTAIN",
+"description": "Lolly Pop",
+"price": 725.00,
+"discountedPrice": 218.00,
+"packType": "Box"
+},
+{
+"id": 16,
+"category": "MULTI COLOUR FOUNTAIN",
+"description": "Candy Crash (5 Pcs)",
+"price": 725.00,
+"discountedPrice": 218.00,
+"packType": "Box"
+},
+{
+"id": 17,
+"category": "MULTI COLOUR FOUNTAIN",
+"description": "Ashrafi (5 Pcs) Big",
+"price": 325.00,
+"discountedPrice": 98.00,
+"packType": "Box"
+},
+{
+"id": 18,
+"category": "MULTI COLOUR FOUNTAIN",
+"description": "Tri Colour (5 Pcs)",
+"price": 1000.00,
+"discountedPrice": 300.00,
+"packType": "Box"
+},
+{
+"id": 19,
+"category": "WHISTLE NOVELTIES",
+"description": "Love Bug Whistle Chakkar (10 Pcs)",
+"price": 750.00,
+"discountedPrice": 225.00,
+"packType": "Box"
+},
+{
+"id": 20,
+"category": "WHISTLE NOVELTIES",
+"description": "Whistle Rocket",
+"price": 813.00,
+"discountedPrice": 244.00,
+"packType": "Box"
+},
+{
+"id": 21,
+"category": "WHISTLE NOVELTIES",
+"description": "Chirping Birds 12 Whistle",
+"price": 1300.00,
+"discountedPrice": 390.00,
+"packType": "Box"
+},
+{
+"id": 22,
+"category": "TWINKLING PENCIL",
+"description": "1 1/2\" Twinkling Star",
+"price": 116.00,
+"discountedPrice": 35.00,
+"packType": "Box"
+},
+{
+"id": 23,
+"category": "TWINKLING PENCIL",
+"description": "4\" Deluxe Twinkling Star",
+"price": 340.00,
+"discountedPrice": 102.00,
+"packType": "Box"
+},
+{
+"id": 24,
+"category": "ROCKET",
+"description": "All - Tech (Multi Colour Crackling)",
+"price": 440.00,
+"discountedPrice": 132.00,
+"packType": "Box"
+},
+{
+"id": 25,
+"category": "ROCKET",
+"description": "Sound Rocket",
+"price": 238.00,
+"discountedPrice": 71.00,
+"packType": "Box"
+},
+{
+"id": 26,
+"category": "ROCKET",
+"description": "2 Sound / Lunik Rocket",
+"price": 600.00,
+"discountedPrice": 180.00,
+"packType": "Box"
+},
+{
+"id": 27,
+"category": "ROCKET",
+"description": "Kevin 10 or 5G Mobile Rocket or Space Balls",
+"price": 1166.00,
+"discountedPrice": 350.00,
+"packType": "Box"
+},
+{
+"id": 28,
+"category": "BIJILI",
+"description": "Red Bijili",
+"price": 116.00,
+"discountedPrice": 35.00,
+"packType": "1 Bag"
+},
+{
+"id": 29,
+"category": "BIJILI",
+"description": "Stripped Bijili",
+"price": 138.00,
+"discountedPrice": 41.00,
+"packType": "1 Bag"
+},
+{
+"id": 30,
+"category": "SOUND ITEMS",
+"description": "Atom Bomb Small",
+"price": 160.00,
+"discountedPrice": 48.00,
+"packType": "Box"
+},
+{
+"id": 31,
+"category": "SOUND ITEMS",
+"description": "Mumu Green or Hydro Green",
+"price": 225.00,
+"discountedPrice": 68.00,
+"packType": "Box"
+},
+{
+"id": 32,
+"category": "SOUND ITEMS",
+"description": "Tiger Green or King of King",
+"price": 320.00,
+"discountedPrice": 96.00,
+"packType": "Box"
+},
+{
+"id": 33,
+"category": "SOUND ITEMS",
+"description": "Commander Green or Classic",
+"price": 380.00,
+"discountedPrice": 114.00,
+"packType": "Box"
+},
+{
+"id": 34,
+"category": "SOUND ITEMS",
+"description": "Bullet Bomb Mini",
+"price": 85.00,
+"discountedPrice": 26.00,
+"packType": "Box"
+},
+{
+"id": 35,
+"category": "SPARKLERS",
+"description": "10 Cm. Electric Sparklers",
+"price": 69.00,
+"discountedPrice": 21.00,
+"packType": "Box"
+},
+{
+"id": 36,
+"category": "SPARKLERS",
+"description": "10 Cm. Colour Sparklers",
+"price": 75.00,
+"discountedPrice": 23.00,
+"packType": "Box"
+},
+{
+"id": 37,
+"category": "SPARKLERS",
+"description": "10 Cm. Green Sparklers",
+"price": 85.00,
+"discountedPrice": 26.00,
+"packType": "Box"
+},
+{
+"id": 38,
+"category": "SPARKLERS",
+"description": "12 Cm. Electric Sparklers",
+"price": 114.00,
+"discountedPrice": 34.00,
+"packType": "Box"
+},
+{
+"id": 39,
+"category": "SPARKLERS",
+"description": "12 Cm. Colour Sparklers",
+"price": 124.00,
+"discountedPrice": 37.00,
+"packType": "Box"
+},
+{
+"id": 40,
+"category": "SPARKLERS",
+"description": "12 Cm. Green Sparklers",
+"price": 138.00,
+"discountedPrice": 41.00,
+"packType": "Box"
+},
+{
+"id": 41,
+"category": "SPARKLERS",
+"description": "15 Cm. Electric Sparklers",
+"price": 163.00,
+"discountedPrice": 49.00,
+"packType": "Box"
+},
+{
+"id": 42,
+"category": "SPARKLERS",
+"description": "15 Cm. Colour Sparklers",
+"price": 181.00,
+"discountedPrice": 54.00,
+"packType": "Box"
+},
+{
+"id": 43,
+"category": "SPARKLERS",
+"description": "15 Cm. Green Sparklers",
+"price": 194.00,
+"discountedPrice": 58.00,
+"packType": "Box"
+},
+{
+"id": 44,
+"category": "SPARKLERS",
+"description": "15 Cm. Red Sparklers",
+"price": 206.00,
+"discountedPrice": 62.00,
+"packType": "Box"
+},
+{
+"id": 45,
+"category": "SPARKLERS",
+"description": "30 Cm. Electric Sparklers",
+"price": 163.00,
+"discountedPrice": 49.00,
+"packType": "Box"
+},
+{
+"id": 46,
+"category": "SPARKLERS",
+"description": "30 Cm. Colour Sparklers",
+"price": 181.00,
+"discountedPrice": 54.00,
+"packType": "Box"
+},
+{
+"id": 47,
+"category": "SPARKLERS",
+"description": "30 Cm. Green Sparklers",
+"price": 194.00,
+"discountedPrice": 58.00,
+"packType": "Box"
+},
+{
+"id": 48,
+"category": "SPARKLERS",
+"description": "30 Cm. Red Sparklers",
+"price": 206.00,
+"discountedPrice": 62.00,
+"packType": "Box"
+},
+{
+"id": 49,
+"category": "SPARKLERS",
+"description": "50 Cm. Electric Sparklers",
+"price": 600.00,
+"discountedPrice": 180.00,
+"packType": "Box"
+},
+{
+"id": 50,
+"category": "SPARKLERS",
+"description": "50 Cm. Colour Sparklers",
+"price": 663.00,
+"discountedPrice": 199.00,
+"packType": "Box"
+},
+{
+"id": 51,
+"category": "FANCY FIREWORKS",
+"description": "Kit Kat",
+"price": 138.00,
+"discountedPrice": 41.00,
+"packType": "Box"
+},
+{
+"id": 52,
+"category": "FANCY FIREWORKS",
+"description": "Ganga Jamuna (5 Pcs.)",
+"price": 284.00,
+"discountedPrice": 85.00,
+"packType": "Box"
+},
+{
+"id": 53,
+"category": "FANCY FIREWORKS",
+"description": "Electric Stone (10 Pcs.)",
+"price": 75.00,
+"discountedPrice": 23.00,
+"packType": "Box"
+},
+{
+"id": 54,
+"category": "AERIAL NOVELTIES",
+"description": "Seven Shot",
+"price": 800.00,
+"discountedPrice": 240.00,
+"packType": "Box"
+},
+{
+"id": 55,
+"category": "AERIAL NOVELTIES",
+"description": "1 1/4\" Fancy (All Items)",
+"price": 160.00,
+"discountedPrice": 48.00,
+"packType": "Box"
+},
+{
+"id": 56,
+"category": "AERIAL NOVELTIES",
+"description": "1 3/4\" Fancy (3 Pcs.)",
+"price": 1063.00,
+"discountedPrice": 319.00,
+"packType": "Box"
+},
+{
+"id": 57,
+"category": "AERIAL NOVELTIES",
+"description": "2\" Fancy (1 Piece)",
+"price": 650.00,
+"discountedPrice": 195.00,
+"packType": "Box"
+},
+{
+"id": 58,
+"category": "AERIAL NOVELTIES",
+"description": "2 1/2\" Fancy (1 Piece) SPL",
+"price": 813.00,
+"discountedPrice": 244.00,
+"packType": "Box"
+},
+{
+"id": 59,
+"category": "AERIAL NOVELTIES",
+"description": "3\" Fancy (1 Piece) SPL",
+"price": 1400.00,
+"discountedPrice": 420.00,
+"packType": "Box"
+},
+{
+"id": 60,
+"category": "AERIAL NOVELTIES",
+"description": "3 1/2\" Fancy (2 Piece)",
+"price": 2600.00,
+"discountedPrice": 780.00,
+"packType": "Box"
+},
+{
+"id": 61,
+"category": "AERIAL NOVELTIES",
+"description": "4\" Fancy (1 Piece)",
+"price": 1500.00,
+"discountedPrice": 450.00,
+"packType": "Box"
+},
+{
+"id": 62,
+"category": "CAKE ITEMS",
+"description": "12 Shot",
+"price": 688.00,
+"discountedPrice": 206.00,
+"packType": "Box"
+},
+{
+"id": 63,
+"category": "CAKE ITEMS",
+"description": "Purple Blast (12 Shot) MEGA",
+"price": 1000.00,
+"discountedPrice": 300.00,
+"packType": "Box"
+},
+{
+"id": 64,
+"category": "CAKE ITEMS",
+"description": "15 Multiple Shot",
+"price": 1063.00,
+"discountedPrice": 319.00,
+"packType": "Box"
+},
+{
+"id": 65,
+"category": "CAKE ITEMS",
+"description": "25 Shot (Color Music)",
+"price": 1900.00,
+"discountedPrice": 570.00,
+"packType": "Box"
+},
+{
+"id": 66,
+"category": "CAKE ITEMS",
+"description": "30 shot",
+"price": 1680.00,
+"discountedPrice": 504.00,
+"packType": "Box"
+},
+{
+"id": 67,
+"category": "CAKE ITEMS",
+"description": "60 Shot (Multi Colour)",
+"price": 3400.00,
+"discountedPrice": 1020.00,
+"packType": "Box"
+},
+{
+"id": 68,
+"category": "CAKE ITEMS",
+"description": "120 Shot",
+"price": 6800.00,
+"discountedPrice": 2040.00,
+"packType": "Box"
+},
+{
+"id": 69,
+"category": "CAKE ITEMS",
+"description": "240 Shot",
+"price": 13600.00,
+"discountedPrice": 4080.00,
+"packType": "Box"
+},
+{
+"id": 70,
+"category": "NEW ARRIVALS",
+"description": "Nemo (5 Pcs.) / Toy Story",
+"price": 1100.00,
+"discountedPrice": 330.00,
+"packType": "Box"
+},
+{
+"id": 71,
+"category": "NEW ARRIVALS",
+"description": "Colour Smoke",
+"price": 800.00,
+"discountedPrice": 240.00,
+"packType": "Box"
+},
+{
+"id": 72,
+"category": "NEW ARRIVALS",
+"description": "Butterfly",
+"price": 334.00,
+"discountedPrice": 100.00,
+"packType": "Box"
+},
+{
+"id": 73,
+"category": "NEW ARRIVALS",
+"description": "Helicopter",
+"price": 500.00,
+"discountedPrice": 150.00,
+"packType": "Box"
+},
+{
+"id": 74,
+"category": "NEW ARRIVALS",
+"description": "Peacock Bada",
+"price": 1520.00,
+"discountedPrice": 456.00,
+"packType": "Box"
+},
+{
+"id": 75,
+"category": "NEW ARRIVALS",
+"description": "Tin Fountain",
+"price": 580.00,
+"discountedPrice": 174.00,
+"packType": "Box"
+},
+{
+"id": 76,
+"category": "NEW ARRIVALS",
+"description": "Sky Shot (10 Pcs.)",
+"price": 534.00,
+"discountedPrice": 160.00,
+"packType": "1 Pkt."
+},
+{
+"id": 77,
+"category": "NEW ARRIVALS",
+"description": "Lion 6\" Crackers",
+"price": 275.00,
+"discountedPrice": 83.00,
+"packType": "1 Pkt."
+},
+{
+"id": 78,
+"category": "NEW ARRIVALS",
+"description": "Welcome Star Crackling",
+"price": 666.00,
+"discountedPrice": 200.00,
+"packType": "Box"
+},
+{
+"id": 79,
+"category": "NEW ARRIVALS",
+"description": "Popcorn variety (2 Pcs.) Fountain",
+"price": 766.00,
+"discountedPrice": 230.00,
+"packType": "Box"
+},
+{
+"id": 80,
+"category": "NEW ARRIVALS",
+"description": "Lotus Wheel (5 Pcs.)",
+"price": 750.00,
+"discountedPrice": 225.00,
+"packType": "Box"
+},
+{
+"id": 81,
+"category": "NEW ARRIVALS",
+"description": "Siren Big (3 Pcs.)",
+"price": 660.00,
+"discountedPrice": 198.00,
+"packType": "Box"
+},
+{
+"id": 82,
+"category": "NEW ARRIVALS",
+"description": "3\" Fancy (2 Piece) Rathna",
+"price": 1750.00,
+"discountedPrice": 525.00,
+"packType": "Box"
+},
+{
+"id": 83,
+"category": "NEW ARRIVALS",
+"description": "Jhakkas - Crackling Fountain (3 Pcs.)",
+"price": 1163.00,
+"discountedPrice": 349.00,
+"packType": "Box"
+},
+{
+"id": 84,
+"category": "NEW ARRIVALS",
+"description": "Flower Pots - Color Kotti Deluxe - 10 Pcs.",
+"price": 1375.00,
+"discountedPrice": 413.00,
+"packType": "Box"
+},
+{
+"id": 85,
+"category": "NEW ARRIVALS",
+"description": "Chakkar - Spinner special - 10 Pcs.",
+"price": 438.00,
+"discountedPrice": 131.00,
+"packType": "Box"
+},
+{
+"id": 86,
+"category": "NEW ARRIVALS",
+"description": "Spinner - Red and Green - 10 Pcs.",
+"price": 688.00,
+"discountedPrice": 206.00,
+"packType": "Box"
+},
+{
+"id": 87,
+"category": "NEW ARRIVALS",
+"description": "Magic show - Bank Money - 2 Pcs.",
+"price": 813.00,
+"discountedPrice": 244.00,
+"packType": "Box"
+},
+{
+"id": 88,
+"category": "NEW ARRIVALS",
+"description": "Peacock",
+"price": 680.00,
+"discountedPrice": 204.00,
+"packType": "Box"
+},
+{
+"id": 89,
+"category": "NEW ARRIVALS",
+"description": "4\" Gold Lakshmi - Mega",
+"price": 163.00,
+"discountedPrice": 49.00,
+"packType": "1 Pkt."
+},
+{
+"id": 90,
+"category": "NEW ARRIVALS",
+"description": "Juke Box 50 (Whistle Shot)",
+"price": 3750.00,
+"discountedPrice": 1125.00,
+"packType": "Box"
+},
+{
+"id": 91,
+"category": "NEW ARRIVALS",
+"description": "Water Queen",
+"price": 740.00,
+"discountedPrice": 222.00,
+"packType": "Box"
+},
+{
+"id": 92,
+"category": "NEW ARRIVALS",
+"description": "4\" Fancy Mega (2 Pcs.)",
+"price": 4200.00,
+"discountedPrice": 1260.00,
+"packType": "Box"
+},
+{
+"id": 93,
+"category": "NEW ARRIVALS",
+"description": "4\" Nayagra Fancy",
+"price": 1600.00,
+"discountedPrice": 480.00,
+"packType": "Box"
+},
+{
+"id": 94,
+"category": "NEW ARRIVALS",
+"description": "Finger Tip (3 Pcs.)",
+"price": 838.00,
+"discountedPrice": 251.00,
+"packType": "Box"
+},
+{
+"id": 95,
+"category": "NEW ARRIVALS",
+"description": "Wonder Three",
+"price": 838.00,
+"discountedPrice": 251.00,
+"packType": "Box"
+},
+{
+"id": 96,
+"category": "NEW ARRIVALS",
+"description": "Paint the Sky (3 Pcs.)",
+"price": 938.00,
+"discountedPrice": 281.00,
+"packType": "Box"
+},
+{
+"id": 97,
+"category": "NEW ARRIVALS",
+"description": "AK 47 (1 Pc.)",
+"price": 640.00,
+"discountedPrice": 192.00,
+"packType": "Box"
+},
+{
+"id": 98,
+"category": "NEW ARRIVALS",
+"description": "Selfie Stick (5 Pcs)",
+"price": 500.00,
+"discountedPrice": 150.00,
+"packType": "Box"
+},
+{
+"id": 99,
+"category": "NEW ARRIVALS",
+"description": "Head Bomb Hunt (10 Pcs.)",
+"price": 800.00,
+"discountedPrice": 240.00,
+"packType": "Box"
+},
+{
+"id": 100,
+"category": "NEW ARRIVALS",
+"description": "555 Bomb (10 Pcs.)",
+"price": 700.00,
+"discountedPrice": 210.00,
+"packType": "Box"
+},
+{
+"id": 101,
+"category": "NEW ARRIVALS",
+"description": "2 1/4\" Fancy (2 Pieces)",
+"price": 1200.00,
+"discountedPrice": 360.00,
+"packType": "Box"
+}
+]

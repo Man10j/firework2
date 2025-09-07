@@ -15,6 +15,7 @@ import DialogActions from '@mui/material/DialogActions';
 import TextField from '@mui/material/TextField';
 import Tooltip from '@mui/material/Tooltip';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+import { emphasize } from '@mui/material/styles';
 
 
   const Checkout = ({ cart, products, onOrderPlaced }) => {
@@ -31,7 +32,7 @@ import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
     const total = cartItems.reduce((sum, item) => sum + item.discountedPrice * item.count, 0);
   
   const [open, setOpen] = useState(false);
-  const [user, setUser] = useState({ name: '', phone: '', address: '' });
+  const [user, setUser] = useState({ name: '', phone: '', email: '', address: '' });
   const [toast, setToast] = useState(false);
   const [clearDialog, setClearDialog] = useState(false);
     const handleClearCart = () => setClearDialog(true);
@@ -41,43 +42,46 @@ import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
       setCartState({});
       if (onOrderPlaced) onOrderPlaced();
     };
+
+  
   
     const handleOpen = () => {
-      fetch('/.netlify/functions/createOrder', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ productLists: cartItems })
-      })
-        .then(res => res.json())
-        .then(data => {
-          // Optionally handle response
-          setOpen(true);
-        })
-        .catch(err => {
-          // Optionally handle error
-          setOpen(true);
-        });
+      setOpen(true);
     };
     const handleClose = () => setOpen(false);
     const handleChange = (e) => {
       setUser({ ...user, [e.target.name]: e.target.value });
     };
     const handlePlaceOrder = () => {
-      setOpen(false);
+
+fetch('/.netlify/functions/createOrder', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ productLists: cartItems, total: total, userDetails:{
+          name: user.name,
+          phone: user.phone,
+          email: user.email,
+          address: user.address
+        } })
+      })
+        .then(res => res.json())
+        .then(data => {
+         setOpen(false);
       setToast(true);
       setUser({ name: '', phone: '', address: '' });
-      // WhatsApp message logic
-      const invoiceLines = cartItems.map(item => `${item.name} x${item.count} - ₹${item.discountedPrice * item.count}`).join('%0A');
-      const totalLine = `Total: ₹${total}`;
-      const userDetails = `Name: ${user.name}%0APhone: ${user.phone}%0AAddress: ${user.address}`;
-      const message = `Order Invoice:%0A${invoiceLines}%0A${totalLine}%0A%0A${userDetails}`;
-      const whatsappNumber = '918489397667'; // Replace with your desired number (country code + number)
-      window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
+      
       if (onOrderPlaced) onOrderPlaced();
       setTimeout(() => {
         setToast(false);
         navigate('/');
       }, 2000);
+        })
+        .catch(err => {
+          console.error('Error placing order:', err);
+        });
+
+      
+     
     };
     const handleToastClose = (event, reason) => {
       if (reason === 'clickaway') return;
@@ -142,6 +146,7 @@ import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
                   <DialogContent sx={{ display: 'flex', flexDirection: 'column', gap: 2, mt: 1 }}>
                     <TextField label="Name" name="name" value={user.name} onChange={handleChange} fullWidth required />
                     <TextField label="Phone" name="phone" value={user.phone} onChange={handleChange} fullWidth required />
+                    <TextField label="Email" name="email" value={user.email} onChange={handleChange} fullWidth required type="email" />
                     <TextField label="Address" name="address" value={user.address} onChange={handleChange} fullWidth required multiline minRows={2} />
                   </DialogContent>
                   <DialogActions>
@@ -150,7 +155,7 @@ import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
                       onClick={handlePlaceOrder} 
                       variant="contained" 
                       color="success"
-                      disabled={!user.name || !user.phone || !user.address}
+                      disabled={!user.name || !user.phone || !user.address || !user.email}
                     >
                       Place Order
                     </Button>
