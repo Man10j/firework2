@@ -1,8 +1,5 @@
-{
-  "functions": {
-    "directory": "netlify/functions"
-  },
-  "build": {
-    "publish": "firework/build"
-  }
-}
+[functions]
+directory = "netlify/functions"
+
+[build]
+publish = "firework/build"
