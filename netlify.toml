@@ -1,5 +1,0 @@
-[functions]
-directory = "firework2/netlify/functions"
-
-[build]
-publish = "firework2/build"
