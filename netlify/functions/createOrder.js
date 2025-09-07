@@ -39,8 +39,8 @@ exports.handler = async function(event, context) {
         <td>${product.description}</td>
      <td>${product.packType}</td>
          <td>${product.count}</td>
-         <td>₹${product.price}</td>
-        <td>₹${product.discountedPrice}</td>
+         <td>₹${product.discountedPrice}</td>
+        <td>₹${product.discountedPrice * product.count}</td>
       </tr>
     `).join('');
 
@@ -52,14 +52,15 @@ exports.handler = async function(event, context) {
             <th>Name</th>
             <th>Pack Type</th>
             <th>Count</th>
-            <th>Price</th>
-            <th>Discounted Price</th>
+            <th>Unit Price</th>
+            <th>Total Price</th>
+           
           </tr>
         </thead>
         <tbody>
           ${tableRows}
            <tr>
-              <td colspan="7" style="text-align:right;font-weight:bold;">Total: ₹${total}</td>
+              <td colspan="7" style="text-align:right;font-weight:bold;">Amount : ₹${total}</td>
             </tr>
         </tbody>
       </table>

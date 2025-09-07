@@ -5,7 +5,7 @@ import Container from '@mui/material/Container';
 import Divider from '@mui/material/Divider';
 
 const Footer = () => (
-  <Box component="footer" sx={{ bgcolor: 'primary.dark', color: 'primary.contrastText', py: 4, mt: 6}}>
+  <Box component="footer" sx={{ bgcolor: '#941010', color: 'primary.contrastText', py: 4, mt: 6}}>
     <Container maxWidth="md">
       <Typography variant="h6" gutterBottom>Contact Information</Typography>
       <Divider sx={{ mb: 2, bgcolor: 'primary.contrastText' }} />

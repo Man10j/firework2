@@ -68,28 +68,21 @@ export default function ProductList({products, cart = {}, onAddToCart, onRemoveF
                       label={product.category}
                       size="small"
                       sx={{
-                        backgroundColor: '#f3e5f5', // subtle purple
-                        color: '#6a1b9a',
-                        fontWeight: 500
+                        backgroundColor: '#941010', // subtle purple
+                        color: '#fff',
+                        fontWeight: 500,
+                        borderRadius: "7px"
                       }}
                     />
-                    <Chip label={product.packType} color="primary" size="small" />
+                    <Chip label={product.packType} color="primary" size="small" sx={{
+                       borderRadius: "7px"
+                    }} />
                   </Box>
-                  <Typography variant="body2" color="text.secondary" sx={{ mb: 1,   wordBreak: 'break-word',
-                        overflowWrap: 'break-word', textAlign: "left"}}>
+                  <Typography variant="body2" color="#211919" sx={{ mb: 1,   wordBreak: 'break-word',
+                        overflowWrap: 'break-word', textAlign: "left", fontWeight: 500, fontSize: '18px'}}>
                     {product.description}
                   </Typography>
-                  {/* <Box sx={{ mb: 1, display: 'flex', justifyContent: 'flex-start' }}>
-                    <Chip 
-                      label={product.category}
-                      size="small"
-                      sx={{
-                        backgroundColor: '#f3e5f5', // subtle purple
-                        color: '#6a1b9a',
-                        fontWeight: 500
-                      }}
-                    />
-                  </Box> */}
+          
                   <Box sx={{ display: 'flex', alignItems: 'baseline', gap: 1 }}>
                     <Typography variant="body1" color="text.secondary" sx={{ textDecoration: 'line-through' }}>
                       ₹{product.price}

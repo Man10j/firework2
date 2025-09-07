@@ -24,7 +24,7 @@ export default function Header({cartCount}) {
     <AppBar 
       position={isMobile ? "sticky" : "static"} 
       color="primary" 
-      sx={{ mb: 2, top: 0, zIndex: 1201, ...(isMobile && { position: 'sticky', top: 0 }) }}
+      sx={{ mb: 2, top: 0 , zIndex: 1201,  backgroundColor: "#941010", ...(isMobile && { position: 'sticky', top: 0 }) }}
     >
       <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
@@ -41,7 +41,7 @@ export default function Header({cartCount}) {
               badgeContent={cartCount} 
               sx={{
                 '& .MuiBadge-badge': {
-                  backgroundColor: '#d32f2f',
+                  backgroundColor: '#008000',
                   color: '#fff',
                   fontWeight: 'bold',
                   fontSize: '1rem',
