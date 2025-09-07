@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Alert from '@mui/material/Alert';
 import TextField from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
 import IconButton from '@mui/material/IconButton';
@@ -13,35 +14,50 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import Chip from '@mui/material/Chip';
+import FormControl from '@mui/material/FormControl';
+import InputLabel from '@mui/material/InputLabel';
+import Select from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
 
 
 export default function ProductList({products, cart = {}, onAddToCart, onRemoveFromCart }) {
   const [page, setPage] = useState(1);
   const [search, setSearch] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('');
   const itemsPerPage = 9;
   const handleChange = (event, value) => setPage(value);
 
-  // Filter products by search (category or description)
+  // Get unique categories from products
+  const categories = Array.from(new Set(products.map(p => p.category)));
+
+  // Filter products by category and search
   const filteredProducts = products.filter(product => {
     const val = search.trim().toLowerCase();
-    if (!val) return true;
-    return (
-      product.category.toLowerCase().includes(val) ||
-      product.description.toLowerCase().includes(val)
-    );
+    const matchesSearch = !val || product.category.toLowerCase().includes(val) || product.description.toLowerCase().includes(val);
+    const matchesCategory = !selectedCategory || product.category === selectedCategory;
+    return matchesSearch && matchesCategory;
   });
 
   const pageCount = Math.ceil(filteredProducts.length / itemsPerPage);
   const paginatedProducts = filteredProducts.slice((page - 1) * itemsPerPage, page * itemsPerPage);
   return (
-    <Box sx={{ p: { xs: 1, sm: 2 }, minHeight: '50vh', display: 'flex', flexDirection: 'column', justifyContent: { xs: 'center', md: 'space-between' }, alignItems: { xs: 'center', sm: 'stretch' } }}>
-  
-         <TextField
+    <>
+      <Box sx={{ p: { xs: 1, sm: 2 }, minHeight: '50vh', display: 'flex', flexDirection: 'column', justifyContent: { xs: 'center', md: 'space-between' }, alignItems: { xs: 'center', sm: 'stretch' }, mt: 2 }}>
+         <Alert severity="info" sx={{ position: 'relative', maxWidth: '100%', fontWeight: 'bold', textAlign: 'center' }}>
+        Minimum order is ₹5000. We provide service in Tamil and Hindi
+      </Alert>
+      <Box sx={{ 
+        display: "flex",
+        flexDirection : {xs: "column", md: "row"},
+        justifyContent : "space-between",
+        mt : 3
+      }}>
+      <TextField
         label="Search by category or description"
         variant="outlined"
         value={search}
         onChange={e => { setSearch(e.target.value); setPage(1); }}
-        sx={{ mb: 3, width: { xs: '100%', sm: 400 }, position: { xs: 'sticky', md: 'relative' }, top: { xs: 0, sm: 'auto' }, zIndex: 1201, background: { xs: '#fff', sm: 'inherit' },}}
+        sx={{ mb: 2, width: { xs: '100%', sm: 400 }, background: { xs: '#fff', sm: 'inherit' },}}
         InputProps={{
           endAdornment: (
             search ? (
@@ -54,7 +70,23 @@ export default function ProductList({products, cart = {}, onAddToCart, onRemoveF
           )
         }}
       />
-     
+      <FormControl sx={{ mb: 3, minWidth: 180, maxWidth: 320 }} size="small">
+        <InputLabel id="category-select-label">Category</InputLabel>
+        <Select
+          labelId="category-select-label"
+          id="category-select"
+          value={selectedCategory}
+          label="Category"
+          onChange={e => { setSelectedCategory(e.target.value); setPage(1); }}
+        >
+          <MenuItem value="">All</MenuItem>
+          {categories.map(cat => (
+            <MenuItem key={cat} value={cat}>{cat}</MenuItem>
+          ))}
+        </Select>
+      </FormControl>
+      </Box>
+
       <Grid container spacing={2} sx={{justifyContent: { xs: 'center', md: 'left' }}}>
         {paginatedProducts.map((product, idx) => {
           const realIdx = (page - 1) * itemsPerPage + idx;
@@ -95,7 +127,21 @@ export default function ProductList({products, cart = {}, onAddToCart, onRemoveF
                     <IconButton aria-label="remove" color="primary" onClick={() => onRemoveFromCart(realIdx)} disabled={count === 0}>
                       <RemoveIcon />
                     </IconButton>
-                    <Typography variant="body1" sx={{ minWidth: 24, textAlign: 'center' }}>{count}</Typography>
+                    <TextField
+                      type="number"
+                      inputProps={{ min: 0, style: { textAlign: 'center', width: 48 } }}
+                      value={count}
+                      onChange={e => {
+                        const val = Math.max(0, parseInt(e.target.value) || 0);
+                        const diff = val - count;
+                        if (diff > 0) {
+                          for (let i = 0; i < diff; i++) onAddToCart(realIdx);
+                        } else if (diff < 0) {
+                          for (let i = 0; i < -diff; i++) onRemoveFromCart(realIdx);
+                        }
+                      }}
+                      size="small"
+                    />
                     <IconButton aria-label="add" color="primary" onClick={() => onAddToCart(realIdx)}>
                       <AddIcon />
                     </IconButton>
@@ -110,6 +156,7 @@ export default function ProductList({products, cart = {}, onAddToCart, onRemoveF
       <Box sx={{ display: 'flex', justifyContent: 'center', mt: 3 }}>
         <Pagination count={pageCount} page={page} onChange={handleChange} color="primary" />
       </Box>
-    </Box>
+      </Box>
+    </>
   );
 }

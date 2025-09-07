@@ -121,7 +121,7 @@ fetch('/.netlify/functions/createOrder', {
           <Button onClick={handleConfirmClear} color="error" variant="contained">Clear All</Button>
         </DialogActions>
       </Dialog>
-          <CardContent>
+          <CardContent sx={{padding: "16px", margin: "10px"}}> 
             <Typography variant="h5" sx={{ fontWeight: 600, mb: 2, textAlign: 'center' }}>
               Invoice
             </Typography>
@@ -149,8 +149,14 @@ fetch('/.netlify/functions/createOrder', {
                 </Box>
                 <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center' }}>
                   <Button variant="outlined" color="primary" onClick={() => navigate('/')}>Add More Items</Button>
-                  <Button variant="contained" color="success" disabled={cartItems.length === 0} onClick={handleOpen}>Proceed</Button>
+                  <Button variant="contained" color="success" onClick={handleOpen}    disabled={cartItems.length === 0 || total <= 5000} >Proceed</Button>
                 </Box>
+                {total <= 5000 && cartItems.length > 0 && (
+                    <Typography color="error" sx={{ mt: 3, fontWeight: 500 }}>
+                      Add items worth ₹5000 to proceed.
+                    </Typography>
+                  )}
+
                 <Dialog open={open} onClose={handleClose} maxWidth="xs" fullWidth>
                   <DialogTitle>Enter Your Details</DialogTitle>
                   <DialogContent sx={{ display: 'flex', flexDirection: 'column', gap: 2, mt: 1 }}>
