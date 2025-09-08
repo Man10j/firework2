@@ -89,11 +89,10 @@ export default function ProductList({products, cart = {}, onAddToCart, onRemoveF
 
       <Grid container spacing={2} sx={{justifyContent: { xs: 'center', md: 'left' }}}>
         {paginatedProducts.map((product, idx) => {
-          const realIdx = (page - 1) * itemsPerPage + idx;
-          const count = cart[realIdx] || 0;
+          const count = cart[product.id] || 0;
           return (
-            <Grid item xs={12} sm={4} md={12} key={realIdx}>
-              <Card sx={{ height: '100%', width: 270 }} key={realIdx}>
+            <Grid item xs={12} sm={4} md={12} key={product.id}>
+              <Card sx={{ height: '100%', width: 270 }} key={product.id}>
                 <CardContent>
                   <Box sx={{ display: 'flex', alignItems: 'center', mb: 1, gap: 1 }}>
                      <Chip 
@@ -124,7 +123,7 @@ export default function ProductList({products, cart = {}, onAddToCart, onRemoveF
                     </Typography>
                   </Box>
                   <Box sx={{ display: 'flex', alignItems: 'center', mt: 2, gap: 1 }}>
-                    <IconButton aria-label="remove" color="primary" onClick={() => onRemoveFromCart(realIdx)} disabled={count === 0}>
+                    <IconButton aria-label="remove" color="primary" onClick={() => onRemoveFromCart(product.id)} disabled={count === 0}>
                       <RemoveIcon />
                     </IconButton>
                     <TextField
@@ -135,14 +134,14 @@ export default function ProductList({products, cart = {}, onAddToCart, onRemoveF
                         const val = Math.max(0, parseInt(e.target.value) || 0);
                         const diff = val - count;
                         if (diff > 0) {
-                          for (let i = 0; i < diff; i++) onAddToCart(realIdx);
+                          for (let i = 0; i < diff; i++) onAddToCart(product.id);
                         } else if (diff < 0) {
-                          for (let i = 0; i < -diff; i++) onRemoveFromCart(realIdx);
+                          for (let i = 0; i < -diff; i++) onRemoveFromCart(product.id);
                         }
                       }}
                       size="small"
                     />
-                    <IconButton aria-label="add" color="primary" onClick={() => onAddToCart(realIdx)}>
+                    <IconButton aria-label="add" color="primary" onClick={() => onAddToCart(product.id)}>
                       <AddIcon />
                     </IconButton>
                   </Box>

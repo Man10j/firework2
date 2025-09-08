@@ -23,12 +23,12 @@ import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
     // Prepare cart items
     const [cartState, setCartState] = useState(cart);
     const cartItems = Object.entries(cartState)
-      .filter(([idx, count]) => count > 0)
-      .map(([idx, count]) => ({
-        ...products[idx],
-        count,
-        idx: Number(idx)
-      }));
+      .filter(([id, count]) => count > 0)
+      .map(([id, count]) => {
+        const product = products.find(p => p.id === Number(id));
+        return product ? { ...product, count, id: Number(id) } : null;
+      })
+      .filter(Boolean);
     const total = cartItems.reduce((sum, item) => sum + item.discountedPrice * item.count, 0);
   
   const [open, setOpen] = useState(false);
@@ -74,7 +74,7 @@ fetch('/.netlify/functions/createOrder', {
         
           setLoading(false);
           setToast(true);
-      const message =  `Order confirmation:%0AThis is to notify that I have placed an order.%0AOrder #${finalOrderId?.toString()}`;
+      const message =  `Order confirmation:%0AThis is to notify that ${user.name} have placed an order ${finalOrderId}`;
       const whatsappNumber = "919443866993"; // Replace with your desired number (country code + number)
       window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
       setUser({ name: '', phone: '', address: '' });
