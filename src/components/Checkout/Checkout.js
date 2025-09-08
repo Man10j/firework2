@@ -69,12 +69,13 @@ fetch('/.netlify/functions/createOrder', {
       })
         .then(res => res.json())
         .then(data => {
-          setUser({ name: '', phone: '', address: '' });
+        
           setLoading(false);
           setToast(true);
       const message =  `Order confirmation:%0AThis is to notify that I have placed an order.%0AOrder #${orderId}`;
       const whatsappNumber = "919443866993"; // Replace with your desired number (country code + number)
       window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
+      setUser({ name: '', phone: '', address: '' });
 
           if (onOrderPlaced) onOrderPlaced();
       setTimeout(() => {
